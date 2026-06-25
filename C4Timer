@@ -51,27 +51,27 @@ public plugin_init()
 
 public plugin_precache() 
 {
-	precache_sound("C4timer/C4Female/ten.wav")
-	precache_sound("C4timer/C4Female/nine.wav")
-	precache_sound("C4timer/C4Female/eight.wav")
-	precache_sound("C4timer/C4Female/seven.wav")
-	precache_sound("C4timer/C4Female/six.wav")
-	precache_sound("C4timer/C4Female/five.wav")
-	precache_sound("C4timer/C4Female/four.wav")
-	precache_sound("C4timer/C4Female/three.wav")
-	precache_sound("C4timer/C4Female/two.wav")
-	precache_sound("C4timer/C4Female/one.wav")
+	precache_sound("C4timer/ten.wav")
+	precache_sound("C4timer/nine.wav")
+	precache_sound("C4timer/eight.wav")
+	precache_sound("C4timer/seven.wav")
+	precache_sound("C4timer/six.wav")
+	precache_sound("C4timer/five.wav")
+	precache_sound("C4timer/four.wav")
+	precache_sound("C4timer/three.wav")
+	precache_sound("C4timer/two.wav")
+	precache_sound("C4timer/one.wav")
 	
-	precache_sound("C4timer/C4BOSS/1.wav")
-	precache_sound("C4timer/C4BOSS/2.wav")
-	precache_sound("C4timer/C4BOSS/3.wav")
-	precache_sound("C4timer/C4BOSS/4.wav")
-	precache_sound("C4timer/C4BOSS/5.wav")
-	precache_sound("C4timer/C4BOSS/6.wav")
-	precache_sound("C4timer/C4BOSS/7.wav")
-	precache_sound("C4timer/C4BOSS/8.wav")
-	precache_sound("C4timer/C4BOSS/9.wav")
-	precache_sound("C4timer/C4BOSS/10.wav")
+	precache_sound("C4timer/1.wav")
+	precache_sound("C4timer/2.wav")
+	precache_sound("C4timer/3.wav")
+	precache_sound("C4timer/4.wav")
+	precache_sound("C4timer/5.wav")
+	precache_sound("C4timer/6.wav")
+	precache_sound("C4timer/7.wav")
+	precache_sound("C4timer/8.wav")
+	precache_sound("C4timer/9.wav")
+	precache_sound("C4timer/10.wav")
 	
 	return PLUGIN_HANDLED
 } 
@@ -158,11 +158,11 @@ public Zero()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4TIMER/C4Female/ten.wav")
+		client_cmd(0, "spk C4timer/ten.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4TIMER/C4_Time/10.wav" )
+		client_cmd(0, "spk C4timer/10.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -171,11 +171,11 @@ public one()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4TIMER/C4Female/nine.wav")
+		client_cmd(0, "spk C4timer/nine.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4TIMER/C4_Time/9.wav" )
+		client_cmd(0, "spk C4timer/9.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -184,11 +184,11 @@ public two()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/eight.wav")
+		client_cmd(0, "spk C4timer/eight.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/8.wav" )
+		client_cmd(0, "spk C4timer/8.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -197,11 +197,11 @@ public three()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/seven.wav")
+		client_cmd(0, "spk C4timer/seven.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/7.wav" )
+		client_cmd(0, "spk C4timer/7.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -210,11 +210,11 @@ public foor()
 { 
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/six.wav")
+		client_cmd(0, "spk C4timer/six.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/6.wav" )
+		client_cmd(0, "spk C4timer/6.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -223,11 +223,11 @@ public five()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/five.wav")
+		client_cmd(0, "spk C4timer/five.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/5.wav" )
+		client_cmd(0, "spk C4timer/5.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -236,11 +236,11 @@ public six()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/four.wav")
+		client_cmd(0, "spk C4timer/four.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/4.wav" )
+		client_cmd(0, "spk C4timer/4.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -249,11 +249,11 @@ public seven()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/three.wav")
+		client_cmd(0, "spk C4timer/three.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/3.wav" )
+		client_cmd(0, "spk C4timer/3.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -262,11 +262,11 @@ public eigth()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/two.wav")
+		client_cmd(0, "spk C4timer/two.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/2.wav" )
+		client_cmd(0, "spk C4timer/2.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -275,11 +275,11 @@ public nine()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/one.wav")
+		client_cmd(0, "spk C4timer/one.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/1.wav" )
+		client_cmd(0, "spk C4timer/1.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
