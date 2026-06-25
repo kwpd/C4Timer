@@ -51,27 +51,27 @@ public plugin_init()
 
 public plugin_precache() 
 {
-	precache_sound("C4Female/ten.wav")
-	precache_sound("C4Female/nine.wav")
-	precache_sound("C4Female/eight.wav")
-	precache_sound("C4Female/seven.wav")
-	precache_sound("C4Female/six.wav")
-	precache_sound("C4Female/five.wav")
-	precache_sound("C4Female/four.wav")
-	precache_sound("C4Female/three.wav")
-	precache_sound("C4Female/two.wav")
-	precache_sound("C4Female/one.wav")
+	precache_sound("C4timer/C4Female/ten.wav")
+	precache_sound("C4timer/C4Female/nine.wav")
+	precache_sound("C4timer/C4Female/eight.wav")
+	precache_sound("C4timer/C4Female/seven.wav")
+	precache_sound("C4timer/C4Female/six.wav")
+	precache_sound("C4timer/C4Female/five.wav")
+	precache_sound("C4timer/C4Female/four.wav")
+	precache_sound("C4timer/C4Female/three.wav")
+	precache_sound("C4timer/C4Female/two.wav")
+	precache_sound("C4timer/C4Female/one.wav")
 	
-	precache_sound("C4_Time/1.wav")
-	precache_sound("C4_Time/2.wav")
-	precache_sound("C4_Time/3.wav")
-	precache_sound("C4_Time/4.wav")
-	precache_sound("C4_Time/5.wav")
-	precache_sound("C4_Time/6.wav")
-	precache_sound("C4_Time/7.wav")
-	precache_sound("C4_Time/8.wav")
-	precache_sound("C4_Time/9.wav")
-	precache_sound("C4_Time/10.wav")
+	precache_sound("C4timer/C4BOSS/1.wav")
+	precache_sound("C4timer/C4BOSS/2.wav")
+	precache_sound("C4timer/C4BOSS/3.wav")
+	precache_sound("C4timer/C4BOSS/4.wav")
+	precache_sound("C4timer/C4BOSS/5.wav")
+	precache_sound("C4timer/C4BOSS/6.wav")
+	precache_sound("C4timer/C4BOSS/7.wav")
+	precache_sound("C4timer/C4BOSS/8.wav")
+	precache_sound("C4timer/C4BOSS/9.wav")
+	precache_sound("C4timer/C4BOSS/10.wav")
 	
 	return PLUGIN_HANDLED
 } 
@@ -158,11 +158,11 @@ public Zero()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/ten.wav")
+		client_cmd(0, "spk C4TIMER/C4Female/ten.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/10.wav" )
+		client_cmd(0, "spk C4TIMER/C4_Time/10.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
@@ -171,11 +171,11 @@ public one()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4Female/nine.wav")
+		client_cmd(0, "spk C4TIMER/C4Female/nine.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4_Time/9.wav" )
+		client_cmd(0, "spk C4TIMER/C4_Time/9.wav" )
 	}
 	return PLUGIN_CONTINUE
 }
