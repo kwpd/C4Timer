@@ -4,7 +4,7 @@
 #include <cstrike>
 
 #define PLUGIN 	"C4 Timer and Sound"
-#define VERSION "1.7"
+#define VERSION "1.8"
 #define AUTHOR 	"kwpd"
 
 new g_c4timer
@@ -25,6 +25,39 @@ new pcvarToggle
 new const g_timersprite[MAX_SPRITES][] = { "bombticking", "bombticking1" }
 new const g_message[] = "Detonation time intiallized....."
 
+new const C4Sonidos[][] = {
+	"C4timer/english_man/EN01.wav",
+	"C4timer/english_man/EN02.wav",
+	"C4timer/english_man/EN03.wav",
+	"C4timer/english_man/EN04.wav",
+	"C4timer/english_man/EN05.wav",
+	"C4timer/english_man/EN06.wav",
+	"C4timer/english_man/EN07.wav",
+	"C4timer/english_man/EN08.wav",
+	"C4timer/english_man/EN09.wav",
+	"C4timer/english_man/EN10.wav",
+	"C4timer/english_women/EN01.wav",
+	"C4timer/english_women/EN02.wav",
+	"C4timer/english_women/EN03.wav",
+	"C4timer/english_women/EN04.wav",
+	"C4timer/english_women/EN05.wav",
+	"C4timer/english_women/EN06.wav",
+	"C4timer/english_women/EN07.wav",
+	"C4timer/english_women/EN08.wav",
+	"C4timer/english_women/EN09.wav",
+	"C4timer/english_women/EN10.wav",
+	"C4timer/spanish/ES01.wav",
+	"C4timer/spanish/ES02.wav",
+	"C4timer/spanish/ES03.wav",
+	"C4timer/spanish/ES04.wav",
+	"C4timer/spanish/ES05.wav",
+	"C4timer/spanish/ES06.wav",
+	"C4timer/spanish/ES07.wav",
+	"C4timer/spanish/ES08.wav",
+	"C4timer/spanish/ES09.wav",
+	"C4timer/spanish/ES10.wav"
+};
+
 public plugin_init() 
 {
 	register_plugin(PLUGIN, VERSION, AUTHOR)
@@ -34,7 +67,7 @@ public plugin_init()
 	cvar_sprite	= register_cvar("amx_showc4sprite", "1")
 	cvar_msg	= register_cvar("amx_showc4msg", "0")
 	
-	pcvarToggle = register_cvar("C4_voice", "2")
+	pcvarToggle = register_cvar("C4_voice", "3")
 	
 	g_msg_showtimer	= get_user_msgid("ShowTimer")
 	g_msg_roundtime	= get_user_msgid("RoundTime")
@@ -49,31 +82,10 @@ public plugin_init()
 	g_Cvar	= register_cvar("amx_soundc4", "1")
 }
 
-public plugin_precache() 
-{
-	precache_sound("C4timer/ten.wav")
-	precache_sound("C4timer/nine.wav")
-	precache_sound("C4timer/eight.wav")
-	precache_sound("C4timer/seven.wav")
-	precache_sound("C4timer/six.wav")
-	precache_sound("C4timer/five.wav")
-	precache_sound("C4timer/four.wav")
-	precache_sound("C4timer/three.wav")
-	precache_sound("C4timer/two.wav")
-	precache_sound("C4timer/one.wav")
-	
-	precache_sound("C4timer/1.wav")
-	precache_sound("C4timer/2.wav")
-	precache_sound("C4timer/3.wav")
-	precache_sound("C4timer/4.wav")
-	precache_sound("C4timer/5.wav")
-	precache_sound("C4timer/6.wav")
-	precache_sound("C4timer/7.wav")
-	precache_sound("C4timer/8.wav")
-	precache_sound("C4timer/9.wav")
-	precache_sound("C4timer/10.wav")
-	
-	return PLUGIN_HANDLED
+public plugin_precache() {
+	for(new i = 0; i < sizeof(C4Sonidos); i++) {
+		precache_sound(C4Sonidos[i]);
+	}
 } 
 
 public event_hltv()
@@ -135,10 +147,9 @@ public bomb_planted(planter)
 	
 	if(get_pcvar_num(g_Cvar))
 	{
+		// client_cmd(0, "spk C4timer/ten.wav")
 		get_user_name(planter, Name, 31)  
-		
 		new time = get_pcvar_num(g_C4)
-		
 		float(time)
 		set_task( (time - 10.0) , "Zero", task_sound+id)
 		set_task( (time - 9.0) , "one", task_sound+id)
@@ -158,11 +169,15 @@ public Zero()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/ten.wav")
+		client_cmd(0, "spk C4timer/english_man/EN10.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/10.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN10.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES10.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -171,11 +186,15 @@ public one()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/nine.wav")
+		client_cmd(0, "spk C4timer/english_man/EN09.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/9.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN09.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES09.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -184,11 +203,15 @@ public two()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/eight.wav")
+		client_cmd(0, "spk C4timer/english_man/EN08.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/8.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN08.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES08.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -197,11 +220,15 @@ public three()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/seven.wav")
+		client_cmd(0, "spk C4timer/english_man/EN07.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/7.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN07.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES07.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -210,11 +237,15 @@ public foor()
 { 
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/six.wav")
+		client_cmd(0, "spk C4timer/english_man/EN06.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/6.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN06.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES06.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -223,11 +254,15 @@ public five()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/five.wav")
+		client_cmd(0, "spk C4timer/english_man/EN05.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/5.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN05.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES05.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -236,11 +271,15 @@ public six()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/four.wav")
+		client_cmd(0, "spk C4timer/english_man/EN04.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/4.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN04.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES04.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -249,11 +288,15 @@ public seven()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/three.wav")
+		client_cmd(0, "spk C4timer/english_man/EN03.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/3.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN03.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES03.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -262,11 +305,15 @@ public eigth()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/two.wav")
+		client_cmd(0, "spk C4timer/english_man/EN02.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/2.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN02.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES02.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -275,11 +322,15 @@ public nine()
 {
 	if((get_pcvar_num(pcvarToggle) == 1))
 	{
-		client_cmd(0, "spk C4timer/one.wav")
+		client_cmd(0, "spk C4timer/english_man/EN01.wav")
 	}
 	if((get_pcvar_num(pcvarToggle) == 2))
 	{
-		client_cmd(0, "spk C4timer/1.wav" )
+		client_cmd(0, "spk C4timer/english_women/EN01.wav")
+	}
+	if((get_pcvar_num(pcvarToggle) == 3))
+	{
+		client_cmd(0, "spk C4timer/spanish/ES01.wav")
 	}
 	return PLUGIN_CONTINUE
 }
@@ -295,3 +346,6 @@ public RoundStart()
 	new id = task_sound
 	remove_task(task_sound+id)
 }
+/* AMXX-Studio Notes - DO NOT MODIFY BELOW HERE
+*{\\ rtf1\\ ansi\\ ansicpg1252\\ deff0\\ deflang6154{\\ fonttbl{\\ f0\\ fnil Tahoma;}}\n\\ viewkind4\\ uc1\\ pard\\ f0\\ fs16 \n\\ par }
+*/
